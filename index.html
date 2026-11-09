@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Լոգարիթմների և ծրագրավորման կապը՝ տեսություն, ինտերակտիվ փորձարկումներ և Python օրինակներ։">
+<title>Լոգարիթմները ծրագրավորման մեջ | Հետազոտական նախագիծ</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2e;--panel2:#17223b;--text:#edf2ff;--muted:#aab6d3;--line:#293653;--accent:#83e0c2;--accent2:#91a8ff;--gold:#ffd27d;--danger:#ff9c9c;--radius:20px;--shadow:0 18px 50px #0004}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#1c3152 0,transparent 36%),var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1120px,92%);margin:auto}.nav{position:sticky;top:0;z-index:20;background:#0b1020eF;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.navin{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:68px}.brand{font-weight:800;letter-spacing:.2px}.brand span{color:var(--accent)}.links{display:flex;gap:17px;align-items:center;flex-wrap:wrap}.links a{font-size:13px;color:var(--muted)}.links a:hover{color:var(--accent)}.menu{display:none;background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 12px}
+.hero{padding:76px 0 56px}.eyebrow{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.08;max-width:850px;margin:14px 0 20px;letter-spacing:-2px}.hero h1 em{font-style:normal;color:var(--accent)}.lead{font-size:19px;color:var(--muted);max-width:760px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:11px 17px;font-weight:750;cursor:pointer;background:var(--accent);color:#08151a}.btn.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}.hero-art{padding:26px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#182641,#10182a);box-shadow:var(--shadow)}.formula{font:clamp(25px,4vw,42px)/1.5 Georgia,serif;color:var(--accent);text-align:center}.formula small{display:block;color:var(--muted);font:14px system-ui;margin-top:10px}
+section{padding:54px 0}.section-head{margin-bottom:24px}.kicker{color:var(--accent2);font-size:12px;font-weight:800;letter-spacing:1.8px}.section-head h2{font-size:clamp(27px,4vw,39px);line-height:1.2;margin:5px 0 9px}.section-head p{color:var(--muted);max-width:780px;margin:0}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 6;background:linear-gradient(150deg,var(--panel),#10182a);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}.card.third{grid-column:span 4}.card.full{grid-column:1/-1}.card h3{margin:0 0 9px;font-size:20px}.muted{color:var(--muted)}.math{background:#0b1324;border:1px solid var(--line);border-radius:13px;padding:14px 16px;color:var(--accent);font:20px Georgia,serif;overflow-x:auto;margin:13px 0}.note{border-left:3px solid var(--gold);padding:10px 14px;background:#ffd27d12;color:var(--muted);border-radius:0 10px 10px 0}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px;margin:3px 4px 3px 0}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}th,td{padding:11px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--accent)}.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:12px 0}.field{display:flex;flex-direction:column;gap:5px;min-width:125px;flex:1}.field label{font-size:13px;color:var(--muted)}input,select{width:100%;background:#0a1222;border:1px solid #3a4968;color:var(--text);padding:11px 12px;border-radius:10px;font:inherit;min-width:0}input[type=range]{padding:0;accent-color:var(--accent)}.result{padding:13px 15px;background:#83e0c212;border:1px solid #83e0c244;border-radius:12px;margin-top:12px;color:var(--accent);font-weight:700;overflow-wrap:anywhere}.canvasbox{background:#0a1222;border:1px solid var(--line);border-radius:14px;padding:10px;margin-top:12px}canvas{width:100%;height:270px;display:block}.step-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.array{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}.cell{min-width:39px;padding:10px 5px;text-align:center;background:#1a2945;border:1px solid #344768;border-radius:9px;font-weight:700}.cell.active{background:#83e0c233;border-color:var(--accent);color:var(--accent)}.cell.mid{background:#91a8ff33;border-color:var(--accent2)}.cell.discard{opacity:.3}.code{white-space:pre;overflow:auto;background:#070d19;border:1px solid var(--line);padding:16px;border-radius:13px;color:#c9e4ff;font:13px/1.65 ui-monospace,SFMono-Regular,monospace}.quiz-q{padding:15px 0;border-bottom:1px solid var(--line)}.quiz-q p{font-weight:700;margin:0 0 9px}.quiz-q label{display:block;color:var(--muted);padding:4px 0;cursor:pointer}.quiz-q input{width:auto;margin-right:7px;accent-color:var(--accent)}.footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.small{font-size:13px;color:var(--muted)}.tagline{color:var(--gold);font-size:13px;font-weight:700}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:800px){.hero-grid{grid-template-columns:1fr}.card,.card.third{grid-column:1/-1}.links{display:none;position:absolute;top:68px;left:0;right:0;background:#0b1020;padding:15px 4%;border-bottom:1px solid var(--line)}.links.open{display:flex;flex-direction:column;align-items:flex-start}.menu{display:block}.two{grid-template-columns:1fr}.hero{padding-top:48px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navin"><a class="brand" href="#home">LOG<span>․</span>LAB <span class="small">/ հետազոտություն</span></a><button class="menu" id="menuBtn" aria-label="Բացել ցանկը">☰</button><nav class="links" id="navLinks"><a href="#theory">Տեսություն</a><a href="#cs">Ծրագրավորում</a><a href="#complexity">Բարդություն</a><a href="#binary">Binary Search</a><a href="#lab">Փորձասենյակ</a><a href="#python">Python</a><a href="#pythonlab">Python Lab</a><a href="#quiz">Թեստ</a><a href="#sources">Աղբյուրներ</a></nav></div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid"><div><div class="eyebrow">Մաթեմատիկա × Համակարգչային գիտություն</div><h1>Լոգարիթմները <em>ծրագրավորման</em> մեջ</h1><p class="lead">Ինչպե՞ս է մեկ մաթեմատիկական գաղափար օգնում որոնել միլիոնավոր տվյալների մեջ, կառուցել արդյունավետ ալգորիթմներ և հասկանալ համակարգիչների աշխատանքը։</p><div class="actions"><a class="btn" href="#theory">Սկսել ուսումնասիրությունը ↘</a><a class="btn secondary" href="#lab">Փորձարկել գործիքները</a></div><p class="tagline">11-րդ դասարանի հետազոտական նախագիծ · Ինտերակտիվ ուսումնական հարթակ</p></div><div class="hero-art"><div class="formula">log₂(1 048 576) = 20<small>Մեկ միլիոնից ավելի հնարավորություններից՝ մոտ 20 բաժանումով որոնում։</small></div><div class="canvasbox"><canvas id="heroCanvas" aria-label="Լոգարիթմական և գծային աճի համեմատություն"></canvas></div></div></div></section>
+<section id="theory"><div class="wrap"><div class="section-head"><div class="kicker">01 / ՄԱԹԵՄԱՏԻԿԱԿԱՆ ՀԻՄՔԵՐ</div><h2>Ի՞նչ է լոգարիթմը</h2><p>Լոգարիթմը պատասխանում է այն հարցին, թե ինչ աստիճան բարձրացնենք հիմքը՝ տվյալ թիվը ստանալու համար։</p></div><div class="grid">
+<article class="card"><h3>Սահմանում</h3><div class="math">logₐ(x) = y ⇔ aʸ = x</div><p>Այստեղ <b>a</b>-ն հիմքն է, <b>x</b>-ը՝ լոգարիթմի արգումենտը, իսկ <b>y</b>-ը՝ արդյունքը։ Պայմաններն են՝ a &gt; 0, a ≠ 1, x &gt; 0։</p><p class="muted">Օրինակ՝ log₂(8)=3, քանի որ 2³=8։</p></article>
+<article class="card"><h3>Հիմնական հատկություններ</h3><div class="math">logₐ(xy)=logₐx + logₐy</div><div class="math">logₐ(x/y)=logₐx − logₐy</div><div class="math">logₐ(xʳ)=r·logₐx</div><div class="math">logₐx = logᵦx / logᵦa</div><p class="small">Վերջին բանաձևը կոչվում է հիմքի փոփոխման բանաձև։</p></article>
+<article class="card third"><h3>Տասական լոգարիթմ</h3><div class="math">log₁₀(x)</div><p>Հիմքը 10 է։ Օգտակար է տասնորդական կարգերը և մեծությունների սանդղակները նկարագրելիս։</p></article>
+<article class="card third"><h3>Բնական լոգարիթմ</h3><div class="math">ln(x)=logₑ(x)</div><p>Հիմքը e ≈ 2.71828 է։ Հաճախ հանդիպում է մաթեմատիկական մոդելներում, աճի և փոփոխության խնդիրներում։</p></article>
+<article class="card third"><h3>Ցուցչային կապը</h3><div class="math">y=aˣ ⇔ x=logₐ(y)</div><p>Լոգարիթմական և ցուցչային ֆունկցիաները փոխադարձ հակադարձ են։ Նրանց գրաֆիկները համաչափ են y=x ուղղի նկատմամբ։</p></article>
+<article class="card full"><h3>Լոգարիթմական ֆունկցիայի հատկությունները</h3><div class="two"><div><ul><li>Սահմանման տիրույթ՝ x&gt;0։</li><li>Արժեքների բազմություն՝ բոլոր իրական թվերը։</li><li>Գրաֆիկն անցնում է (1,0) կետով։</li><li>Եթե a&gt;1՝ ֆունկցիան աճող է։</li><li>Եթե 0&lt;a&lt;1՝ ֆունկցիան նվազող է։</li></ul></div><div class="canvasbox"><canvas id="theoryCanvas" aria-label="Լոգարիթմական ֆունկցիայի գրաֆիկ"></canvas></div></div></article>
+</div></div></section>
+<section id="cs"><div class="wrap"><div class="section-head"><div class="kicker">02 / ՀԱՄԱԿԱՐԳՉԱՅԻՆ ԳԻՏՈՒԹՅՈՒՆ</div><h2>Ինչո՞ւ են լոգարիթմները կարևոր ծրագրավորման մեջ</h2><p>Ալգորիթմի արագությունը կախված է ոչ միայն համակարգչից, այլև խնդրի լուծման քայլերի քանակից։</p></div><div class="grid">
+<article class="card"><h3>Ժամանակային բարդություն</h3><p>Ժամանակային բարդությունը նկարագրում է, թե ինչպես է ալգորիթմի գործողությունների քանակը աճում մուտքային տվյալների n չափի մեծացման հետ։ Big O գրառումը տալիս է աճի վերին ասիմպտոտիկ գնահատական՝ անտեսելով հաստատուն գործակիցներն ու փոքր անդամները։</p><div class="math">T(n) = O(log n)</div><p>Սա նշանակում է, որ n-ը մեծանալիս քայլերի թիվն աճում է շատ դանդաղ։ Եթե խնդրի չափը կրկնապատկվում է, ապա լոգարիթմական քայլերի թիվն ավելանում է մոտ մեկով՝ նույն հիմքի դեպքում։</p></article>
+<article class="card"><h3>Ինչպե՞ս է առաջանում O(log n)-ը</h3><p>Երբ յուրաքանչյուր քայլից հետո որոնման մնացած տիրույթը փոքրանում է հաստատուն բաժնով, օրինակ՝ երկու անգամ, k քայլից հետո մնում է մոտավորապես n/2ᵏ տարր։</p><div class="math">n / 2ᵏ ≤ 1 ⇒ 2ᵏ ≥ n ⇒ k ≥ log₂(n)</div><p>Ուստի անհրաժեշտ քայլերի թիվը համեմատական է log₂(n)-ին։</p></article>
+<article class="card third"><h3>Որոնում</h3><p>Տեսակավորված զանգվածում Binary Search-ը ամեն քայլում հեռացնում է հնարավորությունների մոտ կեսը։</p></article>
+<article class="card third"><h3>Ծառեր</h3><p>Հավասարակշռված որոնման ծառի բարձրությունը մոտավորապես log₂(n) է, ուստի որոնումն ու թարմացումը հաճախ O(log n) են։</p></article>
+<article class="card third"><h3>Տվյալների բազա</h3><p>Ինդեքսները, օրինակ B-tree ընտանիքի կառուցվածքները, օգնում են տվյալների մեծ հավաքածուներում որոնել՝ առանց բոլոր տողերը հերթով դիտարկելու։ Իրական ծախսը կախված է ինդեքսից և հարցումից։</p></article>
+<article class="card full"><h3>Կարևոր տարբերակում</h3><p>O(log n)-ը չի նշանակում, որ ցանկացած ծրագիր, որտեղ կա log ֆունկցիա, աշխատում է լոգարիթմական ժամանակում։ Բարդությունը որոշվում է ալգորիթմի գործողությունների կառուցվածքով։ Նույնպես՝ O(log n) սովորաբար նկարագրում է աճի կարգը, ոչ թե ճշգրիտ վայրկյանները։</p><div class="note">Օրինակ՝ Binary Search-ը պահանջում է նախապես տեսակավորված տվյալներ։ Եթե տեսակավորումը պետք է կատարել սկզբից, այդ նախապատրաստման արժեքը նույնպես պետք է հաշվի առնել։</div></article>
+</div></div></section>
+<section id="complexity"><div class="wrap"><div class="section-head"><div class="kicker">03 / ԱԼԳՈՐԻԹՄՆԵՐԻ ՀԱՄԵՄԱՏՈՒԹՅՈՒՆ</div><h2>O(log n), O(n), O(n²)</h2><p>Ընտրիր տվյալների քանակը և համեմատիր երեք տեսակի աճը։ Գրաֆիկը ցույց է տալիս պայմանական գործողությունների քանակը, ոչ թե իրական վայրկյանները։</p></div><div class="card full"><div class="controls"><div class="field"><label for="nRange">Տվյալների քանակ՝ n = <b id="nLabel">1000</b></label><input id="nRange" type="range" min="10" max="10000" step="10" value="1000"></div></div><div class="grid"><div class="card third"><div class="muted">Լոգարիթմական · log₂(n)</div><div class="formula" id="logVal">10</div><p class="small">Յուրաքանչյուր քայլում տիրույթը մոտ կես է դառնում։</p></div><div class="card third"><div class="muted">Գծային · n</div><div class="formula" id="linearVal">1 000</div><p class="small">Ամեն տարրը կարող է ստուգվել մեկ անգամ։</p></div><div class="card third"><div class="muted">Քառակուսային · n²</div><div class="formula" id="quadVal">1 000 000</div><p class="small">Երկու ներդրված ցիկլերի օրինակային աճ։</p></div></div><div class="canvasbox"><canvas id="complexCanvas" aria-label="Ալգորիթմների աճի համեմատական գրաֆիկ"></canvas></div><p class="small">Նշում․ քառակուսային արժեքը գրաֆիկում նորմավորված է, որպեսզի երեք կորերն էլ տեսանելի լինեն։ Թվային համեմատության քարտերում ցուցադրվում են n, log₂(n), n² արժեքները։</p></div></div></section>
+<section id="binary"><div class="wrap"><div class="section-head"><div class="kicker">04 / ԻՆՏԵՐԱԿՏԻՎ ԱԼԳՈՐԻԹՄ</div><h2>Փորձարկիր Binary Search-ը</h2><p>Ալգորիթմը աշխատում է տեսակավորված ցուցակի վրա։ Ամեն քայլում ստուգում է միջին տարրը և պահում միայն այն կեսը, որտեղ կարող է գտնվել որոնվող թիվը։</p></div><div class="card full"><div class="controls"><div class="field"><label for="target">Որոնվող թիվ</label><input id="target" type="number" value="23" min="-100" max="100"></div><button class="btn" id="resetSearch">Սկսել նոր որոնում</button><button class="btn secondary" id="nextSearch">Հաջորդ քայլ →</button><button class="btn secondary" id="autoSearch">Ավարտել որոնումը</button></div><div class="array" id="arrayView"></div><div class="result" id="searchStatus" aria-live="polite">Սեղմիր «Սկսել նոր որոնում»։</div><p class="small" id="searchExplain">Կանաչը ցույց է տալիս որոնման ընթացիկ տիրույթը, կապույտը՝ միջին տարրը։</p><div class="math">mid = ⌊(left + right) / 2⌋</div><p class="small">Օրինակային ցուցակը 1-ից 31 ամբողջ թվերն են։ Առավելագույնը պահանջվում է մոտ ⌈log₂(32)⌉ = 5 ստուգում՝ այս 31 տարրերի դեպքում։</p></div></div></section>
+<section id="lab"><div class="wrap"><div class="section-head"><div class="kicker">05 / ՄԱԹԵՄԱՏԻԿԱԿԱՆ ՓՈՐՁԱՍԵՆՅԱԿ</div><h2>Փոխիր հիմքը, հաշվիր, ուսումնասիրիր</h2><p>Երկու գործիք՝ լոգարիթմի հաշվիչ և փոփոխվող հիմքով գրաֆիկ։</p></div><div class="grid">
+<article class="card"><h3>Լոգարիթմի հաշվիչ</h3><div class="controls"><div class="field"><label for="arg">Արգումենտ x (x&gt;0)</label><input id="arg" type="number" min="0.000001" step="any" value="64"></div><div class="field"><label for="base">Հիմք a (a&gt;0, a≠1)</label><input id="base" type="number" step="any" value="2"></div></div><button class="btn" id="calcBtn">Հաշվել logₐ(x)</button><div class="result" id="calcResult" aria-live="polite">log₂(64) = 6</div><p class="small">Հաշվարկը կատարվում է հիմքի փոփոխման բանաձևով՝ ln(x)/ln(a)։</p></article>
+<article class="card"><h3>Փոփոխվող հիմքով գրաֆիկ</h3><div class="controls"><div class="field"><label for="graphBase">Հիմք՝ a = <b id="baseLabel">2</b></label><input id="graphBase" type="range" min="0.3" max="5" step="0.1" value="2"></div></div><div class="canvasbox"><canvas id="logCanvas" aria-label="Փոփոխվող հիմքով լոգարիթմական գրաֆիկ"></canvas></div><p class="small" id="graphNote">Քանի որ a&gt;1, գրաֆիկը աճող է։</p></article>
+</div></div></section>
+<section id="python"><div class="wrap"><div class="section-head"><div class="kicker">06 / ԳՈՐԾՆԱԿԱՆ ԾՐԱԳՐԱՎՈՐՈՒՄ</div><h2>Python-ի օրինակներ</h2><p>Ստորև բերված են պարզ օրինակներ, որոնք ցույց են տալիս լոգարիթմների և ալգորիթմների կապը։</p></div><div class="grid">
+<article class="card"><h3>1. Լոգարիթմ հաշվելը</h3><pre class="code">import math
+
+print(math.log2(64))   # 6.0
+print(math.log10(100)) # 2.0
+print(math.log( math.e )) # 1.0</pre><p class="muted">Python-ի math մոդուլում log(x)-ը բնական լոգարիթմն է, log2(x)-ը՝ հիմք 2-ով, իսկ log10(x)-ը՝ հիմք 10-ով։ Արգումենտը պետք է լինի դրական։</p></article>
+<article class="card"><h3>2. Binary Search</h3><pre class="code">def binary_search(items, target):
+    left, right = 0, len(items) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if items[mid] == target:
+            return mid
+        if items[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1</pre><p class="muted">Յուրաքանչյուր կրկնության ընթացքում որոնման միջակայքը փոքրանում է մոտ երկու անգամ։ Ժամանակային բարդությունը O(log n), իսկ լրացուցիչ հիշողության բարդությունը՝ O(1) է՝ այս կրկնողական տարբերակի համար։</p></article>
+<article class="card"><h3>3. Երեք աճերի գաղափարը</h3><pre class="code"># O(n): մեկ անցում
+for item in items:
+    process(item)
+
+# O(n²): յուրաքանչյուրի հետ համեմատել բոլորը
+for a in items:
+    for b in items:
+        compare(a, b)
+
+# O(log n): միջակայքը կիսել
+while left <= right:
+    mid = (left + right) // 2
+    # հեռացնել միջակայքի կեսը</pre><p class="muted">Կոդի բարդությունը որոշվում է ցիկլերի և խնդրի չափի փոխազդեցությամբ։ Երրորդ օրինակը ամբողջական ալգորիթմ չէ, այլ լոգարիթմական քայլերի գաղափարի ուրվագիծ։</p></article>
+<article class="card"><h3>Գործնական դիտարկում</h3><p>Եթե n=1 000 000, ապա log₂(n)≈19.93, այսինքն՝ ամբողջական կիսման մոտեցմամբ պետք է մոտ 20 մակարդակի քայլ։ Գծային որոնումը վատագույն դեպքում կարող է ստուգել մինչև 1 000 000 տարր։</p><div class="note">Սա գործողությունների քանակի տեսական համեմատություն է։ Իրական ժամանակը կախված է սարքից, տվյալների տեղակայությունից, ծրագրի իրականացումից և այլ գործոններից։</div></article>
+</div></div></section>
+
+<section id="pythonlab"><div class="wrap"><div class="section-head"><div class="kicker">07 / ԿՈԴԻ ԳՈՐԾԱՐԿՈՒՄ</div><h2>Python Lab — գործարկիր կոդը հենց կայքում</h2><p>Գրիր կամ փոփոխիր Python ծրագիրը, ապա գործարկիր այն։ Python միջավայրը բեռնվում է Pyodide-ի միջոցով՝ անմիջապես դիտարկիչում։</p></div><div class="card full">
+<div class="controls"><div class="field"><label for="pyExample">Պատրաստի օրինակ</label><select id="pyExample"><option value="log">Լոգարիթմների հաշվարկ</option><option value="binary">Binary Search</option><option value="compare">Քայլերի համեմատություն</option><option value="custom">Իմ սեփական կոդը</option></select></div><button class="btn" id="runPython">▶ Գործարկել Python-ը</button><button class="btn secondary" id="resetPython">Վերականգնել օրինակը</button></div>
+<label for="pythonEditor" class="small">Python կոդի խմբագրիչ</label>
+<textarea id="pythonEditor" spellcheck="false" autocapitalize="off" autocomplete="off" style="width:100%;min-height:245px;background:#070d19;color:#c9e4ff;border:1px solid #344768;border-radius:13px;padding:16px;font:14px/1.6 ui-monospace,monospace;resize:vertical">import math
+
+x = 1024
+print("log₂(", x, ") =", math.log2(x))
+print("log₁₀(1000) =", math.log10(1000))
+print("ln(e) =", math.log(math.e))</textarea>
+<div class="controls"><div class="field"><label>Գործարկման կարգավիճակ</label><div id="pyStatus" class="small" aria-live="polite">Python միջավայրը դեռ բեռնված չէ։ Առաջին գործարկման համար անհրաժեշտ է ինտերնետ։</div></div></div>
+<div class="small">Արդյունք</div><pre id="pythonOutput" class="code" style="min-height:100px;white-space:pre-wrap" aria-live="polite">Արդյունքը կհայտնվի այստեղ։</pre>
+<div class="note">Անվտանգության և կայունության համար կոդը գործարկվում է դիտարկիչի մեկուսացված Python միջավայրում։ Pyodide-ը առաջին անգամ բեռնվելու համար ներբեռնում է անհրաժեշտ ֆայլերը, ուստի ինտերնետ կապ է պահանջվում։ Այնուհետև նույն դիտարկիչում միջավայրը կարող է մնալ պահված քեշում։</div>
+</div></div></section>
+<section id="applications"><div class="wrap"><div class="section-head"><div class="kicker">08 / ԿԻՐԱՌՈՒԹՅՈՒՆՆԵՐ</div><h2>Որտե՞ղ ենք հանդիպում լոգարիթմներին</h2></div><div class="grid">
+<article class="card third"><h3>Տվյալների բազաներ</h3><p>Ինդեքսները կարող են արագացնել որոնումը։ SQLite-ի բացատրական նյութը ցույց է տալիս, թե ինչպես են ինդեքսներն օգտագործվում որոնման և տեսակավորման ժամանակ։</p></article>
+<article class="card third"><h3>Տվյալների կառուցվածքներ</h3><p>Հավասարակշռված ծառերում բարձրությունը պահվում է լոգարիթմական կարգի սահմաններում, ինչն օգնում է որոնման և փոփոխման գործողություններին։</p></article>
+<article class="card third"><h3>Տեղեկատվության չափում</h3><p>Տեղեկության տեսության մեջ log₂-ը կիրառվում է բիթերով տեղեկատվության և անորոշության չափման համար։ Օրինակ՝ հավասար հավանականությամբ 8 տարբերակներից մեկի ընտրությունը պարունակում է 3 բիթ տեղեկություն։</p></article>
+<article class="card third"><h3>Կոմպրեսիա</h3><p>Որոշ սեղմման մեթոդների տեսական հիմքում հանդիպում են հավանականությունների լոգարիթմները և տեղեկատվական էնտրոպիան։ Լոգարիթմը ինքնին ֆայլ չի սեղմում, այլ օգնում է գնահատել տեղեկատվության չափը։</p></article>
+<article class="card third"><h3>Համակարգչային ցանցեր</h3><p>Որոշ ցանցային ալգորիթմներ և ծառային որոնումներ օգտագործում են լոգարիթմական խորություն կամ փուլերի քանակ։ Կիրառությունը կախված է կոնկրետ արձանագրությունից և կառուցվածքից։</p></article>
+<article class="card third"><h3>Գիտական հաշվարկներ</h3><p>Լոգարիթմական սանդղակները հարմար են շատ լայն միջակայքով մեծություններ ներկայացնելու համար, իսկ ln-ը հաճախ հանդիպում է հավանականության և մաթեմատիկական մոդելներում։</p></article>
+</div></div></section>
+<section id="quiz"><div class="wrap"><div class="section-head"><div class="kicker">09 / ԳԻՏԵԼԻՔՆԵՐԻ ՍՏՈՒԳՈՒՄ</div><h2>Փոքրիկ թեստ</h2><p>Պատասխանիր հարցերին և ստուգիր՝ որքան լավ ես հասկացել թեման։</p></div><div class="card full" id="quizBox">
+<div class="quiz-q"><p>1. Ի՞նչ է նշանակում log₂(16)։</p><label><input type="radio" name="q1" value="a"> 2</label><label><input type="radio" name="q1" value="b"> 4</label><label><input type="radio" name="q1" value="c"> 8</label></div>
+<div class="quiz-q"><p>2. Binary Search-ը ինչո՞ւ է O(log n)։</p><label><input type="radio" name="q2" value="a"> Ամեն քայլում միջակայքը մոտ կիսվում է</label><label><input type="radio" name="q2" value="b"> Ամեն տարրը երկու անգամ է ստուգվում</label><label><input type="radio" name="q2" value="c"> Այն միշտ օգտագործում է երկու ցիկլ</label></div>
+<div class="quiz-q"><p>3. Ո՞ր պայմանն է պարտադիր դասական Binary Search-ի համար։</p><label><input type="radio" name="q3" value="a"> Ցանկը պետք է պատահական լինի</label><label><input type="radio" name="q3" value="b"> Ցանկը պետք է տեսակավորված լինի</label><label><input type="radio" name="q3" value="c"> Ցանկը պետք է ունենա 10 տարր</label></div>
+<div class="quiz-q"><p>4. Ո՞րն է Python-ում բնական լոգարիթմ հաշվելու կանչը։</p><label><input type="radio" name="q4" value="a"> math.log(x)</label><label><input type="radio" name="q4" value="b"> math.log2(x)</label><label><input type="radio" name="q4" value="c"> math.log10(x)</label></div>
+<div class="quiz-q"><p>5. Եթե տվյալների քանակը 1024 է, ապա log₂(1024)-ը հավասար է՝</p><label><input type="radio" name="q5" value="a"> 10</label><label><input type="radio" name="q5" value="b"> 100</label><label><input type="radio" name="q5" value="c"> 512</label></div>
+<button class="btn" id="gradeQuiz">Ստուգել պատասխանները</button><div class="result" id="quizResult" aria-live="polite">Ընտրիր պատասխանները և սեղմիր ստուգելու կոճակը։</div></div></div></section>
+<section id="conclusion"><div class="wrap"><div class="section-head"><div class="kicker">10 / ԱՄՓՈՓՈՒՄ</div><h2>Եզրակացություն</h2></div><div class="card full"><p>Հետազոտությունը ցույց է տալիս, որ լոգարիթմը դպրոցական մաթեմատիկայի և ծրագրավորման միջև իրական կապող օղակ է։ Մաթեմատիկայում այն հակադարձում է ցուցչային գործողությունը, իսկ ալգորիթմներում նկարագրում է այն դեպքերը, երբ յուրաքանչյուր քայլում խնդրի չափը փոքրանում է հաստատուն գործակցով։</p><p>Binary Search-ը այդ կապի պարզ և տեսանելի օրինակն է․ տեսակավորված տվյալների վրա այն կիսում է որոնման միջակայքը, ինչի պատճառով անհրաժեշտ քայլերի քանակը աճում է log₂(n)-ի կարգով։ Նման աճ հանդիպում է նաև հավասարակշռված ծառերի և ինդեքսների որոշ գործողություններում։</p><p>Ուստի ծրագրավորողին լոգարիթմները պետք են ոչ միայն բանաձևեր հաշվելու, այլև ալգորիթմներ վերլուծելու, տվյալների կառուցվածքներ ընտրելու և մեծ խնդիրների համար արդյունավետ լուծումներ նախագծելու համար։</p><div class="note"><b>Հետազոտության գլխավոր բացահայտում․</b> երբ խնդրի չափը բազմապատկվում է, լոգարիթմական ալգորիթմի քայլերի քանակը աճում է շատ ավելի դանդաղ, քան գծային կամ քառակուսային ալգորիթմներինը։</div></div></div></section>
+<section id="sources"><div class="wrap"><div class="section-head"><div class="kicker">11 / ՎՍՏԱՀԵԼԻ ԱՂԲՅՈՒՐՆԵՐ</div><h2>Օգտագործված գրականություն</h2><p>Ստորև բերված են թեմայի համար օգտագործված ստուգելի տեխնիկական աղբյուրներ։</p></div><div class="card full"><ol>
+<li>Python Software Foundation, <a href="https://docs.python.org/3/library/math.html" target="_blank" rel="noopener">Python-ի math մոդուլի պաշտոնական փաստաթղթեր</a>։</li>
+<li>CP-Algorithms, <a href="https://cp-algorithms.com/num_methods/binary_search.html" target="_blank" rel="noopener">Binary Search</a> — կիսման սկզբունքի և O(log n) գնահատման բացատրություն։</li>
+<li>SQLite, <a href="https://www.sqlite.org/queryplanner.html" target="_blank" rel="noopener">Query Planning</a> — տվյալների բազայի ինդեքսների և որոնման պլանավորման մասին։</li>
+<li>OpenDSA, <a href="https://opendsa-server.cs.vt.edu/" target="_blank" rel="noopener">OpenDSA ուսումնական նյութեր</a> — տվյալների կառուցվածքներ և ալգորիթմների վերլուծություն։</li>
+<li>Ս. Լ. Սալաս, Է. Հիլ, Գ. Էտգեն, <i>Calculus: One and Several Variables</i> — ցուցչային և լոգարիթմական ֆունկցիաների մաթեմատիկական հիմքեր (ուսումնական գրականություն)։</li>
+</ol><p class="small">Վեբ աղբյուրների հասանելիությունն ու բովանդակությունը կարող են ժամանակի ընթացքում թարմացվել։ Տեսական բացատրությունները նախագծում ներկայացված են դպրոցական մակարդակին համապատասխանեցված ձևով։</p></div></div></section>
+</main>
+<footer class="footer"><div class="wrap">LOG․LAB · «Լոգարիթմները ծրագրավորման մեջ» · 11-րդ դասարանի հետազոտական նախագիծ<br>Ստեղծված է HTML, CSS և JavaScript տեխնոլոգիաներով։ Կայքը գործում է առանց արտաքին գրադարանների։</div></footer>
+<script>
+const $=id=>document.getElementById(id);
+function draw(canvas,fn){if(!canvas)return;const dpr=window.devicePixelRatio||1,rect=canvas.getBoundingClientRect(),w=Math.max(280,rect.width),h=270;canvas.width=w*dpr;canvas.height=h*dpr;const c=canvas.getContext('2d');c.scale(dpr,dpr);c.clearRect(0,0,w,h);fn(c,w,h)}
+function axes(c,w,h,xmax,ymax){c.strokeStyle='#33415f';c.lineWidth=1;c.beginPath();c.moveTo(42,12);c.lineTo(42,h-30);c.lineTo(w-12,h-30);c.stroke();c.fillStyle='#aab6d3';c.font='11px system-ui';c.fillText('y',20,18);c.fillText('x',w-20,h-8)}
+function plot(canvas,curves,xmax=10,ymax=10){draw(canvas,(c,w,h)=>{axes(c,w,h,xmax,ymax);const X=x=>42+x/xmax*(w-58),Y=y=>h-30-y/ymax*(h-48);for(let t=0;t<=xmax;t+=xmax/5){c.strokeStyle='#26334d';c.beginPath();c.moveTo(X(t),12);c.lineTo(X(t),h-30);c.stroke()}curves.forEach(cur=>{c.strokeStyle=cur.color;c.lineWidth=2.5;c.beginPath();let started=false;for(let i=0;i<=500;i++){let x=.03+(xmax-.03)*i/500,y=cur.fn(x);if(!Number.isFinite(y)||y<0||y>ymax*1.5){started=false;continue}if(!started){c.moveTo(X(x),Y(y));started=true}else c.lineTo(X(x),Y(y))}c.stroke();c.fillStyle=cur.color;c.fillText(cur.name,w-110,18+curves.indexOf(cur)*16)})})}
+function drawTheory(){plot($('theoryCanvas'),[{name:'log₂(x)',color:'#83e0c2',fn:x=>Math.log(x)/Math.log(2)}],8,4)}
+function drawHero(){plot($('heroCanvas'),[{name:'log₂(n)',color:'#83e0c2',fn:x=>Math.log2(x)},{name:'n / 4',color:'#91a8ff',fn:x=>x/4}],16,4)}
+function drawLog(){let a=Number($('graphBase').value);$('baseLabel').textContent=a.toFixed(1);if(a===1){$('graphNote').textContent='Հիմքը չի կարող լինել 1․ փոխիր սահիկի արժեքը։';draw($('logCanvas'),(c,w,h)=>{c.fillStyle='#ffd27d';c.font='14px system-ui';c.fillText('a = 1 դեպքում լոգարիթմը սահմանված չէ',18,45)});return}$('graphNote').textContent=a>1?'Քանի որ a>1, գրաֆիկը աճող է։':'Քանի որ 0<a<1, գրաֆիկը նվազող է։';draw($('logCanvas'),(c,w,h)=>{axes(c,w,h,8,5);let X=x=>42+x/8*(w-58),Y=y=>h-30-(y+4)/9*(h-48);c.strokeStyle='#83e0c2';c.lineWidth=2.5;c.beginPath();let started=false;for(let i=0;i<=500;i++){let x=.03+7.97*i/500,y=Math.log(x)/Math.log(a);if(y < -4.3||y>5.2){started=false;continue}if(!started){c.moveTo(X(x),Y(y));started=true}else c.lineTo(X(x),Y(y))}c.stroke();c.fillStyle='#aab6d3';c.fillText('logₐ(x)',w-72,18)})}
+function drawComplex(){let n=Number($('nRange').value);$('nLabel').textContent=n.toLocaleString('en-US');$('logVal').textContent=Math.log2(n).toFixed(2);$('linearVal').textContent=n.toLocaleString('en-US');$('quadVal').textContent=(n*n).toLocaleString('en-US');let max=Math.max(Math.log2(n),n/1000,n*n/(n*n))*1.1;draw($('complexCanvas'),(c,w,h)=>{axes(c,w,h,100,1.05);let X=x=>42+x/100*(w-58),Y=y=>h-30-y/1.05*(h-48);let series=[{name:'log₂(x)',color:'#83e0c2',fn:x=>Math.log2(x)/Math.log2(10000)},{name:'x / 10 000',color:'#91a8ff',fn:x=>x/10000},{name:'(x/10 000)²',color:'#ffd27d',fn:x=>(x/10000)**2}];series.forEach(s=>{c.strokeStyle=s.color;c.lineWidth=2.5;c.beginPath();for(let i=1;i<=500;i++){let x=10000*i/500,y=s.fn(x);if(i===1)c.moveTo(X(x/100),Y(y));else c.lineTo(X(x/100),Y(y))}c.stroke();c.fillStyle=s.color;c.fillText(s.name,w-130,18+series.indexOf(s)*16)})})}
+$('nRange').addEventListener('input',drawComplex);
+$('graphBase').addEventListener('input',drawLog);
+$('calcBtn').addEventListener('click',()=>{let x=Number($('arg').value),a=Number($('base').value);if(!(x>0)||!(a>0)||a===1){$('calcResult').textContent='Սխալ մուտք․ պահանջվում է x>0, a>0 և a≠1։';return}let v=Math.log(x)/Math.log(a);$('calcResult').textContent=`log_${a}( ${x} ) ≈ ${Number.isFinite(v)?v.toPrecision(9):'չսահմանված'}`});
+const nums=Array.from({length:31},(_,i)=>i+1);let left=0,right=30,found=false,done=false,step=0,target=23,mid=-1;
+function renderSearch(){let html=nums.map((v,i)=>`<span class="cell ${i>=left&&i<=right&&!done?'active':''} ${i===mid?'mid':''} ${done&&i!==mid?'discard':''}">${v}</span>`).join('');$('arrayView').innerHTML=html;if(done){$('searchStatus').textContent=found?`Գտնվեց ${target} թիվը՝ ${mid+1}-րդ դիրքում (ինդեքս՝ ${mid})։ Քայլերի քանակը՝ ${step}։`:`${target} թիվը ցուցակում չկա։ Քայլերի քանակը՝ ${step}։`}else{$('searchStatus').textContent=`Քայլ ${step}․ որոնման տիրույթը՝ ինդեքսներ ${left}–${right}։`}}
+function resetSearch(){target=Number($('target').value);left=0;right=30;found=false;done=false;step=0;mid=-1;if(!Number.isInteger(target)){done=true;$('searchStatus').textContent='Մուտքագրիր ամբողջ թիվ։';$('arrayView').innerHTML='';return}renderSearch()}
+function nextStep(){if(done)return;mid=Math.floor((left+right)/2);step++;if(nums[mid]===target){found=true;done=true}else if(nums[mid]<target)left=mid+1;else right=mid-1;if(left>right)done=true;renderSearch();$('searchExplain').textContent=done?'Որոնումն ավարտվեց․ բոլոր հնարավոր դիրքերը ստուգված են։':`Միջին արժեքը ${nums[mid]} է։ ${nums[mid]<target?'Քանի որ այն փոքր է թիրախից, ձախ կեսը հեռացվում է։':'Քանի որ այն մեծ է թիրախից, աջ կեսը հեռացվում է։'}`}
+$('resetSearch').addEventListener('click',resetSearch);$('nextSearch').addEventListener('click',nextStep);$('autoSearch').addEventListener('click',()=>{while(!done)nextStep()});$('target').addEventListener('keydown',e=>{if(e.key==='Enter')resetSearch()});
+$('gradeQuiz').addEventListener('click',()=>{let ans={q1:'b',q2:'a',q3:'b',q4:'a',q5:'a'},score=0,missing=0;Object.keys(ans).forEach(k=>{let v=document.querySelector(`input[name="${k}"]:checked`);if(!v)missing++;else if(v.value===ans[k])score++});$('quizResult').textContent=`Արդյունք՝ ${score}/5 ճիշտ պատասխան։ ${missing?`Չպատասխանված հարցեր՝ ${missing}։ `:''}${score===5?'Գերազանց աշխատանք։':score>=3?'Լավ արդյունք․ վերանայիր բաց թողած հարցերը։':'Կրկին ուսումնասիրիր տեսական բաժինը և փորձիր նորից։'}`});
+$('menuBtn').addEventListener('click',()=>$('navLinks').classList.toggle('open'));document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>$('navLinks').classList.remove('open')));
+function redraw(){drawHero();drawTheory();drawComplex();drawLog()}window.addEventListener('resize',redraw);resetSearch();redraw();
+
+const pySamples={
+log:`import math
+
+x = 1024
+print("log₂(", x, ") =", math.log2(x))
+print("log₁₀(1000) =", math.log10(1000))
+print("ln(e) =", math.log(math.e))`,
+binary:`def binary_search(items, target):
+    left, right = 0, len(items) - 1
+    steps = 0
+
+    while left <= right:
+        mid = (left + right) // 2
+        steps += 1
+        print("Քայլ", steps, "՝ ստուգվում է", items[mid])
+
+        if items[mid] == target:
+            return mid, steps
+        elif items[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1, steps
+
+numbers = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
+index, steps = binary_search(numbers, 23)
+print("Արդյունք՝ ինդեքս", index, "քայլեր", steps)`,
+compare:`import math
+
+for n in [10, 100, 1_000, 1_000_000]:
+    print(
+        "n =", n,
+        "| log₂(n) ≈", round(math.log2(n), 2),
+        "| n =", n,
+        "| n² =", n*n
+    )`
+};
+let pyodideInstance=null,pyLoading=false;
+$('pyExample').addEventListener('change',()=>{
+ const v=$('pyExample').value;
+ if(v!=='custom')$('pythonEditor').value=pySamples[v];
+});
+$('resetPython').addEventListener('click',()=>{
+ const v=$('pyExample').value;
+ $('pythonEditor').value=pySamples[v]||pySamples.log;
+ $('pythonOutput').textContent='Կոդը վերականգնվեց։';
+});
+async function loadPyodideRuntime(){
+ if(pyodideInstance)return pyodideInstance;
+ if(pyLoading)throw new Error('Python միջավայրն արդեն բեռնվում է։ Սպասիր մի պահ։');
+ pyLoading=true;$('pyStatus').textContent='Բեռնվում է Python միջավայրը…';
+ try{
+  if(!window.loadPyodide){
+   await new Promise((resolve,reject)=>{
+    const script=document.createElement('script');
+    script.src='https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js';
+    script.onload=resolve;script.onerror=()=>reject(new Error('Չհաջողվեց բեռնել Pyodide-ը։ Ստուգիր ինտերնետ կապը։'));
+    document.head.appendChild(script);
+   });
+  }
+  pyodideInstance=await window.loadPyodide();
+  return pyodideInstance;
+ }finally{pyLoading=false}
+}
+$('runPython').addEventListener('click',async()=>{
+ const button=$('runPython'),out=$('pythonOutput'),status=$('pyStatus');
+ button.disabled=true;button.textContent='Գործարկվում է…';out.textContent='';status.textContent='Պատրաստվում է Python միջավայրը…';
+ try{
+  const py=await loadPyodideRuntime();
+  let captured=[];
+  py.setStdout({batched:s=>captured.push(s)});
+  py.setStderr({batched:s=>captured.push(s)});
+  const code=$('pythonEditor').value;
+  await py.runPythonAsync(code);
+  out.textContent=captured.join('')||'Ծրագիրն ավարտվեց առանց տպվող արդյունքի։';
+  status.textContent='Պատրաստ է․ կոդը հաջողությամբ գործարկվեց։';
+ }catch(err){
+  out.textContent=String(err);
+  status.textContent='Գործարկման ընթացքում սխալ առաջացավ։ Ստուգիր կոդը կամ ինտերնետ կապը։';
+ }finally{
+  button.disabled=false;button.textContent='▶ Գործարկել Python-ը';
+ }
+});
+</script>
+</body></html>
